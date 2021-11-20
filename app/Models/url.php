@@ -10,12 +10,13 @@ class url extends Model
     use HasFactory;
     protected $fillable =[
         'id',
-        'url',
+        'destination',
         'slug',
         'created_at',
         'updated_at'
     ];
-    public function getUrlAttribute($value){
-        return ucfirst($value);
+    protected $appends = ['shortened_url'];
+    public function getShortenedUrlAttribute($value){
+        return url('').$this->slug;
     }
 }
