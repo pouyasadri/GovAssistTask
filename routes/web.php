@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/{short_url}',[App\Http\Controllers\UrlController::class,'index']);
+Route::post('/storeUrl/',[App\Http\Controllers\UrlController::class,'store']);
