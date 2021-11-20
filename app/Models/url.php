@@ -15,8 +15,9 @@ class url extends Model
         'created_at',
         'updated_at'
     ];
+    private $slug;
     protected $appends = ['shortened_url'];
     public function getShortenedUrlAttribute($value){
-        return url('').$this->slug;
+        return url('').'/'.$this->slug;
     }
 }
