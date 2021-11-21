@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class url extends Model
 {
     use HasFactory;
+    protected $appends = ['shortened_url'];
     protected $fillable =[
         'id',
         'destination',
@@ -15,9 +16,8 @@ class url extends Model
         'created_at',
         'updated_at'
     ];
-    private $slug;
-    protected $appends = ['shortened_url'];
-    public function getShortenedUrlAttribute($value){
+    public function getShortenedUrlAttribute(){
         return url('').'/'.$this->slug;
     }
+
 }

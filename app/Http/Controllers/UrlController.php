@@ -12,6 +12,7 @@ class UrlController extends Controller
     //
     public function index()
     {
+
         $data = url::latest()->get();
         return view('home', compact('data'));
     }
@@ -40,8 +41,7 @@ class UrlController extends Controller
         if ($validation->fails()) {
             return response()->json(["error"=>"Validation Fails"]);
         } else {
-            $data = $request;
-            $result = url::where('destination', $data['destination'])->first();
+            $result = url::where('destination', $request['destination'])->first();
             return response()->json($result);
         }
     }

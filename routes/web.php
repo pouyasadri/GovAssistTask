@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\UrlController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\UrlController::class, 'index'])->name('home')->middleware('auth');
 Route::post('/storeUrl',[App\Http\Controllers\UrlController::class,'store'])->name("storeUrl")->middleware('auth');
-Route::get('/{short_url}',[App\Http\Controllers\UrlController::class,'show']);
+Route::get('/{short_url}',[App\Http\Controllers\UrlController::class,'show'])->middleware('auth');

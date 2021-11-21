@@ -51,7 +51,7 @@
                 <tbody>
                 @forelse($data as $result)
                     <tr>
-                        <td><a href="{{url('')."/".$result->slug}}">{{url('')."/".$result->slug}}</a></td>
+                        <td><a href="{{$result->shortened_url}}">{{$result->shortened_url}}</a></td>
                         <td><a href="{{$result->destination}}">{{$result->destination}}</a></td>
                         <td>{{$result->created_at}}</td>
                     </tr>
